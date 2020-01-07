@@ -1,0 +1,42 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-inline">
+    <input type="text" class="form-control col-md-4" [(ngModel)]="code" name="code" placeholder="Saisissez le code projet à consulter">  
+    <br><br><button type="submit" class="btn btn-primary">Chercher</button>
+  </div>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Code Projet</th>
+      <th scope="col">Nom du Projet</th>
+      <th scope="col">Méthode</th>
+      <th scope="col">Suivi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{project.code}}</td>
+      <td>{{project.name}}</td>
+      <td>{{project.method}}</td>
+      <td>{{project.followup}}</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+
+<ul *ngFor="let document of documents">
+  <li> {{document.name}}</li>
+</ul> 
+
+<!-- <p-table [value]="documents">
+  <ng-template pTemplate="header" >
+      <th [pSortableColumn]> Documents uploadés </th>   
+  </ng-template>
+  <ng-template pTemplate="body" *ngFor="let document of documents">
+    <tr>
+      <td>{{document.name}}</td>
+    </tr>
+  </ng-template>
+<p-table>  -->
+
