@@ -25,6 +25,7 @@
   </tbody>
 </table>
 
+
 <p> Documents </p>
 <ul *ngFor="let document of project.documents">
   <li> {{document.name}}</li>
@@ -33,13 +34,42 @@
 <ul *ngFor="let review of project.reviews">
   <li> {{review.name}}</li>
 </ul>
-<!-- <p-table [value]="documents">
-  <ng-template pTemplate="header" >
-      <th [pSortableColumn]> Documents uploadés </th>
+<!-- <p-table [value]="project.documents">
+  <ng-template pTemplate="header">
+    <th [pSortableColumn]> Documents uploadés </th>
   </ng-template>
-  <ng-template pTemplate="body" *ngFor="let document of documents">
+  <ng-template pTemplate="body" *ngFor="let document of project.documents">
     <tr>
       <td>{{document.name}}</td>
     </tr>
   </ng-template>
-<p-table>  -->
+  <p-table> -->
+
+<div class="row">
+  <!-- <div class = "col-sm-6"  *ngFor="let currentMethod of methods"> -->
+  <div class="col-sm-6">
+    <!-- <app-product-item [product]="currentProduct"></app-product-item> -->
+    <div class="card method">
+      <div class="card-body">
+        <!-- <h2 class="card-title list-group-item-danger"> Methode:  {{currentMethod.name}}</h2> -->
+        <!-- <ul class="list-group" *ngFor="let proc  of currentMethod.processDTOList"   > -->
+
+        <ul class="list-group-item list-group-item-primary" *ngFor="let proc  of processes">
+          <h3>Process name : {{ proc.displayName }}</h3>
+          Follow up : {{ proc.followUP }} <br>
+          Process Type : {{ proc.processType }} <br>
+          <li class="list-group-item list-group-item-secondary" *ngFor="let procAct  of proc.processActivities">
+            <h4> Process Activity : {{ procAct.name }} </h4>
+            <h5> Liste des artifacts : </h5>
+            <ul>
+              <li class="list-group-item list-group-item-success" *ngFor="let artefact  of procAct.artifacts">
+                Name = {{ artefact.name }} , Tag = {{ artefact.tag }}
+                <br>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

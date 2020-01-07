@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { Document } from '../model/document';
-import { map } from 'rxjs/operators';
+// import { Document } from '../model/document';
+// import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -17,12 +17,12 @@ export class DocumentService {
   searchValue: Subject<number> = new Subject<number>();
 
   constructor(private http: HttpClient) { }
-  
-  getDocuments(projectId: number): Observable<Document[]> {
-    return this.http.get<Document[]>(`http://localhost:8080/documentsListProject/${projectId}`)
-    .pipe(
-      map((documentArray: any[]) => documentArray.map(() => new Document()))
-    );
-  }
+
+  // getDocuments(projectId: number): Observable<Document[]> {
+  //   return this.http.get<Document[]>(`http://localhost:8080/documentsListProject/${projectId}`)
+  //   .pipe(
+  //     map((documentArray: any[]) => documentArray.map(() => new Document()))
+  //   );
+  // }
 
 }
