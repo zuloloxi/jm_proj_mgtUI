@@ -16,14 +16,13 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit() {
 
-     const code = this.route.snapshot.paramMap.get('code');
-     this.projectService.getProject(code)
-       .subscribe(
-         data => {
-           this.project = data;
-         }
-       );
-    }
-
+    const code = this.route.snapshot.paramMap.get('code');
+    this.projectService.getProject(code)
+      .subscribe(
+        data => {
+          this.project = data;
+        }
+      );
+  }
 }
 

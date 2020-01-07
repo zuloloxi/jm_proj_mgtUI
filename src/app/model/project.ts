@@ -7,7 +7,6 @@ export enum Followup {
   LIGHT,
   ENFORCED
 }
-
 export class Project {
   id: number;
   code: string;

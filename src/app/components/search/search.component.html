@@ -1,6 +1,7 @@
 <form (ngSubmit)="onSubmit()">
   <div class="form-inline">
-    <input type="text" class="form-control col-md-4" [(ngModel)]="code" name="code" placeholder="Saisissez le code projet à consulter">  
+    <input type="text" class="form-control col-md-4" [(ngModel)]="code" name="code"
+      placeholder="Saisissez le code projet à consulter">
     <br><br><button type="submit" class="btn btn-primary">Chercher</button>
   </div>
 </form>
@@ -24,14 +25,17 @@
   </tbody>
 </table>
 
-
-<ul *ngFor="let document of documents">
+<p> Documents </p>
+<ul *ngFor="let document of project.documents">
   <li> {{document.name}}</li>
-</ul> 
-
+</ul>
+<p> Revues</p>
+<ul *ngFor="let review of project.reviews">
+  <li> {{review.name}}</li>
+</ul>
 <!-- <p-table [value]="documents">
   <ng-template pTemplate="header" >
-      <th [pSortableColumn]> Documents uploadés </th>   
+      <th [pSortableColumn]> Documents uploadés </th>
   </ng-template>
   <ng-template pTemplate="body" *ngFor="let document of documents">
     <tr>
@@ -39,4 +43,3 @@
     </tr>
   </ng-template>
 <p-table>  -->
-

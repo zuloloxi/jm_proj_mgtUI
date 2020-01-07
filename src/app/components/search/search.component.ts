@@ -3,6 +3,7 @@ import { Project } from 'src/app/model/project';
 import { ProjectService } from 'src/app/services/project.service';
 import { DocumentService } from 'src/app/services/document.service';
 import { Document } from 'src/app/model/document';
+import { Review } from 'src/app/model/review';
 
 
 @Component({
@@ -12,25 +13,23 @@ import { Document } from 'src/app/model/document';
 })
 export class SearchComponent implements OnInit {
   project: Project = new Project();
-  projectId : number;
+  projectId: number;
   code: string;
-  documents: Document[]=[];
-  document: Document = new Document;
+  // documents: Document[] = [];
+  // document: Document = new Document();
+  // reviews: Review[] = [];
+  // review: Review = new Review();
 
-  constructor(private projectService: ProjectService,private documentService: DocumentService) { }
+  constructor(private projectService: ProjectService, private documentService: DocumentService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit() {
-     this.projectService.getProject(this.code)                   //recherche d'un projet avec le code projet saisi
-       .subscribe(data => {
-           this.project = data;                                 //récuparation des données du projet
-           this.documents = this.project.documents;                              
-           
-          //  this.documentService.getDocuments(this.project.id)     //recherche des documents liés au projet avec l'identifiant du projet
-          //    .subscribe(data2  => {this.documents = data2;});    //récuparation des documents du projet
-
-
-       });
+    this.projectService.getProject(this.code)                   //recherche d'un projet avec le code projet saisi
+      .subscribe(data => {
+        this.project = data;                                 //récuparation des données du projet
+        this.project.documents = this.project.documents;
+        this.project.reviews = this.project.reviews;
+      });
   }
 }
