@@ -25,16 +25,27 @@
   </tbody>
 </table>
 
+<ul *ngFor="let proc of processes">
+  <li *ngFor="let procAct of proc.processActivityDTOList">
+    <b>{{procAct.name }} </b>
+    <ul>
+      <li *ngFor="let artefact of procAct.artifactDTOList">
+        {{artefact.name}}
+      </li>
+    </ul>
+    <br>
+
+</ul>
 
 <!-- <p> Documents </p>
 <ul *ngFor="let document of project.documents">
-  <li> {{document.name}}</li>
+  <li>{{document.name}}</li>
 </ul>
 <p> Revues</p>
 <ul *ngFor="let review of project.reviews">
   <li> {{review.name}}</li>
 </ul> -->
-
+<!--
 <div class="row">
   <div class="col-sm-6">
     <div class="card method">
@@ -57,4 +68,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
