@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
         this.processFollow = this.project.followup;              // récupération du type de suivie
 
         // recherche des différentes activités du processus architecture pour le projet consulé
-        this.processService.getProcessForAProject(this.project.method, 'ARCHITECTURE', this.project.followup)
+        this.processService.getProcessForAProject(this.project.method, 'ARCHITECTURE', this.project.followup, this.project.id)
           .subscribe(processData => {
             this.processes = processData;
           });

@@ -15,8 +15,8 @@ export class ProcessService {
 
   constructor(private http: HttpClient) { }
 
-  getProcessForAProject(name: string, ptype: string, pfollow: string): Observable<ProcessDTO[]> {
-    return this.http.get<ProcessDTO[]>(`http://localhost:8080/process/methods/${name}/ptype/${ptype}/pfollow/${pfollow}`);
+  getProcessForAProject(name: string, ptype: string, pfollow: string, projectId: number): Observable<ProcessDTO[]> {
+    return this.http.get<ProcessDTO[]>(`http://localhost:8080/project/${projectId}/process/methods/${name}/ptype/${ptype}/pfollow/${pfollow}`);
   }
 }
 
