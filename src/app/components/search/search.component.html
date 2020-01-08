@@ -25,26 +25,15 @@
   </tbody>
 </table>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card method">
-      <div class="card-body">
-        <ul class="list-group-item list-group-item-primary" *ngFor="let proc of processes">
-          <h3>Process name : {{ proc.displayName }}</h3>
-          Follow up : {{ proc.followUP }} <br>
-          Process Type : {{ proc.processType }} <br>
-          <li class="list-group-item list-group-item-secondary" *ngFor="let procAct of proc.processActivityDTOList">
-            <h4> Process Activity : {{ procAct.name }} </h4>
-            <h5> Liste des artifacts : </h5>
-            <ul>
-              <li class="list-group-item list-group-item-success" *ngFor="let artefact of procAct.artifactDTOList">
-                Name = {{ artefact.name }} , Tag = {{ artefact.tag }}, Done = {{artefact.done}}
-                <br>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<h5>Processus "Architecture"</h5>
+<br>
+<ul *ngFor="let proc of processes">
+  <li *ngFor="let procAct of proc.processActivityDTOList">
+    <strong> {{ procAct.name }} </strong>
+    <ul>
+      <li *ngFor="let artefact of procAct.artifactDTOList">
+        <span
+          [ngClass]="{'artefact-done': artefact.done, 'artefact-not-done' : !artefact.done}">{{artefact.name}}</span>
+      </li>
+      <br>
+    </ul>
