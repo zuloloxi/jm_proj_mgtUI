@@ -14,15 +14,9 @@ export class DocumentService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  searchValue: Subject<number> = new Subject<number>();
+  // searchValue: Subject<number> = new Subject<number>();
 
   constructor(private http: HttpClient) { }
 
-  // getDocuments(projectId: number): Observable<Document[]> {
-  //   return this.http.get<Document[]>(`http://localhost:8080/documentsListProject/${projectId}`)
-  //   .pipe(
-  //     map((documentArray: any[]) => documentArray.map(() => new Document()))
-  //   );
-  // }
 
 }

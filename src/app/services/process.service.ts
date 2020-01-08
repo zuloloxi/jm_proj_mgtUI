@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Process } from '../model/process';
+import { ProcessDTO } from '../model/process-dto';
 
 
 @Injectable({
@@ -15,8 +15,8 @@ export class ProcessService {
 
   constructor(private http: HttpClient) { }
 
-  getProcessForAProject(name: string, ptype: string, pfollow: string): Observable<Process[]> {
-    return this.http.get<Process[]>(`http://localhost:8080/process/methods/${name}/ptype/${ptype}/pfollow/${pfollow}`);
+  getProcessForAProject(name: string, ptype: string, pfollow: string): Observable<ProcessDTO[]> {
+    return this.http.get<ProcessDTO[]>(`http://localhost:8080/process/methods/${name}/ptype/${ptype}/pfollow/${pfollow}`);
   }
 }
 
