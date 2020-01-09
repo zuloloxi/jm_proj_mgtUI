@@ -8,37 +8,40 @@
     <br><br><button type="submit" class="btn btn-primary">Chercher</button>
   </div>
 </form>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Code Projet</th>
-      <th scope="col">Nom du Projet</th>
-      <th scope="col">Méthode</th>
-      <th scope="col">Suivi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{project.code}}</td>
-      <td>{{project.name}}</td>
-      <td>{{project.method}}</td>
-      <td>{{project.followup}}</td>
-    </tr>
-    <tr>
-  </tbody>
-</table>
 
-<br>
-<h5>Processus "Architecture"</h5>
-<ul *ngFor="let proc of processes">
-  <li *ngFor="let procAct of proc.processActivityDTOList">
-    <strong> {{ procAct.name }} </strong>
-    <ul>
-      <li *ngFor="let artefact of procAct.artifactDTOList">
-        <span
-          [ngClass]="{'artefact-done': artefact.done, 'artefact-not-done' : !artefact.done}">{{artefact.name}}</span>
-      </li>
-      <br>
-    </ul>
-  </li>
-</ul>
+<div *ngIf="project">
+  <table class=" table">
+    <thead>
+      <tr>
+        <th scope="col">Code Projet</th>
+        <th scope="col">Nom du Projet</th>
+        <th scope="col">Méthode</th>
+        <th scope="col">Suivi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{project.code}}</td>
+        <td>{{project.name}}</td>
+        <td>{{project.method}}</td>
+        <td>{{project.followup}}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+
+  <br>
+  <h5>Processus "Architecture"</h5>
+  <ul *ngFor="let proc of processes">
+    <li *ngFor="let procAct of proc.processActivityDTOList">
+      <strong> {{ procAct.name }} </strong>
+      <ul>
+        <li *ngFor="let artefact of procAct.artifactDTOList">
+          <span
+            [ngClass]="{'artefact-done': artefact.done, 'artefact-not-done' : !artefact.done}">{{artefact.name}}</span>
+        </li>
+        <br>
+      </ul>
+    </li>
+  </ul>
+</div>
