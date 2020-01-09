@@ -1,3 +1,6 @@
+<br>
+<h3>Procédure de Gestion de Projet</h3>
+<br>
 <form (ngSubmit)="onSubmit()">
   <div class="form-inline">
     <input type="text" class="form-control col-md-4" [(ngModel)]="code" name="code"
@@ -25,8 +28,8 @@
   </tbody>
 </table>
 
-<h5>Processus "Architecture"</h5>
 <br>
+<h5>Processus "Architecture"</h5>
 <ul *ngFor="let proc of processes">
   <li *ngFor="let procAct of proc.processActivityDTOList">
     <strong> {{ procAct.name }} </strong>
@@ -37,3 +40,5 @@
       </li>
       <br>
     </ul>
+  </li>
+</ul>
