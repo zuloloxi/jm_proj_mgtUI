@@ -24,7 +24,7 @@
     "angular-datatables": "^8.0.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.4.1",
-    "datatables.net": "^1.10.20",
+    "datatables.net": "^1.10.22",
     "font-awesome": "^4.7.0",
     "primeicons": "^2.0.0",
     "primeng": "^9.0.0-rc.2",
